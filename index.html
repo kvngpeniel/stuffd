@@ -74,12 +74,12 @@ body{
 .cur.big{width:44px;height:44px;background:transparent;border:1.5px solid var(--violet);opacity:.7}
 
 /* ─────────────────────────────────────────
-   SCROLL-REVEAL ANIMATIONS (TIGHT & CRISP)
+   SCROLL-REVEAL ANIMATIONS (AUTOMATIC ON SCROLL)
 ───────────────────────────────────────── */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(12px); 
-  transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
+  transform: translateY(20px); 
+  transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
 }
 .reveal-on-scroll.active {
   opacity: 1;
@@ -92,8 +92,8 @@ body{
 .stagger-parent .process-step,
 .stagger-parent .stat {
   opacity: 0;
-  transform: translateY(12px); 
-  transition: opacity 0.55s var(--ease-premium), transform 0.55s var(--ease-premium);
+  transform: translateY(20px); 
+  transition: opacity 0.7s var(--ease-premium), transform 0.7s var(--ease-premium);
 }
 
 .stagger-parent.active .sell-card,
@@ -219,7 +219,7 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   HERO (LAYOUT TUNED TO SCREENSHOT ACCORDING TO 1001575230.jpg)
+   HERO
 ───────────────────────────────────────── */
 .hero{
   min-height: auto; 
@@ -807,12 +807,12 @@ footer{
 <section class="hero">
   <div class="hero-eyebrow">High-Ticket Acquisition Infrastructure</div>
   <h1 class="hero-headline">
-    <span class="line"><span class="word w1">We</span> <span class="word w2">Build</span></span>
-    <span class="line"><span class="word w3 highlight">Media Assets</span></span>
-    <span class="line"><span class="word w4">That</span> <span class="word w5">Buy Back</span></span>
-    <span class="line"><span class="word w6">Your Pipeline.</span></span>
+    <span class="line"><span class="word w1">We</span> <span class="word w2">Build</span> <span class="word w3">Your</span></span>
+    <span class="line"><span class="word w4 highlight">Inbound Engine</span></span>
+    <span class="line"><span class="word w5">In 30 Days.</span></span>
+    <span class="line"><span class="word w6">Fully Managed.</span></span>
   </h1>
-  <p class="hero-sub">Stop chasing cold leads. We engineer high-retention short-form funnel infrastructure that turns raw algorithmic attention into $20k–$100k MRR inbound client channels for elite B2B founders.</p>
+  <p class="hero-sub">Stop chasing cold leads or wasting hours editing. We engineer custom short-form funnel infrastructure that transforms your expertise into high-ticket inbound pipelines while you stay focused on running your business.</p>
   <div class="hero-ctas">
     <button class="btn-primary"><span>Secure Strategy Call</span></button>
     <button class="btn-ghost" onclick="scrollTo('#services')">Explore Solutions</button>
@@ -821,7 +821,7 @@ footer{
 </section>
 
 <!-- STATS BAR -->
-<section class="stats-bar stagger-parent">
+<section class="stats-bar checker-scroll stagger-parent">
   <div class="stat">
     <span class="stat-n">$4.2M+</span>
     <span class="stat-l">Verified Client Revenue</span>
@@ -840,13 +840,13 @@ footer{
 
 <!-- WHAT WE SELL -->
 <section class="section what-section" id="about">
-  <div class="reveal-on-scroll">
+  <div class="reveal-on-scroll checker-scroll">
     <div class="section-eyebrow">The Core Infrastructure</div>
     <h2 class="section-title">Everything required to <em>monetize modern attention</em>.</h2>
     <p class="section-sub">No useless vanity metrics. We construct asset-backed content engines focused entirely on bottom-line pipeline development.</p>
   </div>
   
-  <div class="sell-grid stagger-parent">
+  <div class="sell-grid checker-scroll stagger-parent">
     <div class="sell-card">
       <span class="sell-icon">🎯</span>
       <h3 class="sell-name">Alpha Positioning</h3>
@@ -882,12 +882,12 @@ footer{
 
 <!-- SERVICES -->
 <section class="section" id="services">
-  <div class="reveal-on-scroll">
+  <div class="reveal-on-scroll checker-scroll">
     <div class="section-eyebrow">Three Mechanisms of Scale</div>
     <h2 class="section-title">Choose the level of support that fits your <em>current revenue bracket</em>.</h2>
   </div>
   
-  <div class="services-grid stagger-parent">
+  <div class="services-grid checker-scroll stagger-parent">
     <div class="service-card">
       <span class="service-num">01 / Foundation</span>
       <h3 class="service-name">The Authority Starter</h3>
@@ -933,7 +933,7 @@ footer{
 </section>
 
 <!-- MANIFESTO -->
-<section class="manifesto reveal-on-scroll">
+<section class="manifesto reveal-on-scroll checker-scroll">
   <blockquote class="manifesto-quote">
     "Views are an unbacked currency. True authority is measured exclusively by the <strong>predictability of your client pipeline</strong>."
   </blockquote>
@@ -942,12 +942,12 @@ footer{
 
 <!-- PROCESS -->
 <section class="section" id="process">
-  <div class="reveal-on-scroll">
+  <div class="reveal-on-scroll checker-scroll">
     <div class="section-eyebrow">The Integration Sprint</div>
     <h2 class="section-title">From zero momentum to a live, automated pipeline asset in <em>four streamlined phases</em>.</h2>
   </div>
   
-  <div class="process-grid stagger-parent">
+  <div class="process-grid checker-scroll stagger-parent">
     <div class="process-step">
       <div class="process-bg"></div>
       <span class="process-n">01</span>
@@ -976,7 +976,7 @@ footer{
 </section>
 
 <!-- EMAIL CAPTURE CTA -->
-<section class="cta-section reveal-on-scroll" id="cta">
+<section class="cta-section reveal-on-scroll checker-scroll" id="cta">
   <div class="cta-bg-text">PENNYTECH</div>
   <h2 class="cta-title">Build Your Custom Inbound<br/>Engine Blueprint.</h2>
   <p class="cta-sub">Enter your business email below to secure a 1-on-1 media infrastructure audit. We will map out your exact funnel layout. Zero obligation.</p>
@@ -1041,19 +1041,22 @@ document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn =>
   });
 });
 
-/* HIGH-PERFORMANCE INTERSECTION OBSERVER FOR SCROLL REVEALS */
+/* ────────────────────────────────────────────────────────────────────────
+   AUTOMATIC SCROLL OBSERVER (NO CLICKS REQUIRED TO ACTIVATE)
+──────────────────────────────────────────────────────────────────────── */
 const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
+    // Triggers instantly when the user scrolls past the top frame margin of the asset block
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
     }
   });
 }, {
   threshold: 0.05, 
-  rootMargin: '0px 0px -20px 0px'
+  rootMargin: '0px 0px -40px 0px' 
 });
 
-// Target all dynamic elements
+// Watch all layout zones automatically
 document.querySelectorAll('.reveal-on-scroll, .stagger-parent').forEach((el) => {
   animationObserver.observe(el);
 });
