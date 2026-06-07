@@ -29,6 +29,9 @@
   --glow-lg:     0 0 100px rgba(124,58,237,0.4), 0 0 200px rgba(124,58,237,0.15);
   --border:      rgba(124,58,237,0.18);
   --border-dim:  rgba(250,250,250,0.06);
+  
+  /* Smooth animation timing token */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html, body {
@@ -72,13 +75,51 @@ body{
 .cur.big{width:44px;height:44px;background:transparent;border:1.5px solid var(--violet);opacity:.7}
 
 /* ─────────────────────────────────────────
-   NAV (Fixed For Mobile Sizing)
+   NEW HOVER REVEAL & INCOMING SMOOTH ANIMATIONS
+───────────────────────────────────────── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.85s var(--ease-premium), transform 0.85s var(--ease-premium);
+}
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dynamic staggers built on top of scroll reveals */
+.stagger-parent .sell-card,
+.stagger-parent .service-card,
+.stagger-parent .process-step,
+.stagger-parent .stat {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s var(--ease-premium), transform 0.7s var(--ease-premium);
+}
+
+.stagger-parent.active .sell-card,
+.stagger-parent.active .service-card,
+.stagger-parent.active .process-step,
+.stagger-parent.active .stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Setup custom micro delays for staggered entries */
+.stagger-parent.active *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-parent.active *:nth-child(2) { transition-delay: 0.15s; }
+.stagger-parent.active *:nth-child(3) { transition-delay: 0.25s; }
+.stagger-parent.active *:nth-child(4) { transition-delay: 0.35s; }
+.stagger-parent.active *:nth-child(5) { transition-delay: 0.45s; }
+
+/* ─────────────────────────────────────────
+   NAV
 ───────────────────────────────────────── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:20px 24px;
   display:flex;align-items:center;justify-content:space-between;
-  transition:background .4s,padding .4s,border-bottom .4s;
+  transition:background .4s var(--ease-premium),padding .4s var(--ease-premium),border-bottom .4s var(--ease-premium);
   max-width: 100vw;
 }
 nav.scrolled{
@@ -103,7 +144,6 @@ nav.scrolled{
 }
 .nav-logo span{color:var(--violet)}
 
-/* Hide standard desktop nav links on mobile devices */
 .nav-links{
   display:none;
   gap:40px;align-items:center;
@@ -120,7 +160,7 @@ nav.scrolled{
   font-weight:500;
   letter-spacing:.07em;
   text-transform:uppercase;
-  transition:color .2s;
+  transition:color .2s ease;
 }
 .nav-links a:hover{color:var(--white)}
 
@@ -134,7 +174,7 @@ nav.scrolled{
   letter-spacing:.08em;
   text-transform:uppercase;
   padding:10px 18px;
-  transition:background .25s,border-color .25s,box-shadow .25s;
+  transition:all .3s var(--ease-premium);
   white-space: nowrap;
 }
 @media (min-width: 768px) {
@@ -216,7 +256,8 @@ nav.scrolled{
   margin-bottom:32px;
   backdrop-filter:blur(10px);
   opacity:0;
-  animation:fadeUp .7s ease .2s forwards;
+  transform: translateY(15px);
+  animation:fadeUpEntrance .8s var(--ease-premium) .2s forwards;
 }
 .hero-eyebrow::before{
   content:'';width:6px;height:6px;
@@ -240,14 +281,14 @@ nav.scrolled{
   display:inline-block;
   opacity:0;
   transform:translateY(110%);
-  animation:wordSlide .8s cubic-bezier(.16,1,.3,1) forwards;
+  animation:wordSlide .9s cubic-bezier(.16,1,.3,1) forwards;
 }
 .w1{animation-delay:.35s}
-.w2{animation-delay:.5s}
-.w3{animation-delay:.6s}
-.w4{animation-delay:.7s}
-.w5{animation-delay:.8s}
-.w6{animation-delay:.9s}
+.w2{animation-delay:.45s}
+.w3{animation-delay:.55s}
+.w4{animation-delay:.65s}
+.w5{animation-delay:.75s}
+.w6{animation-delay:.85s}
 
 .hero-headline .highlight{
   background:linear-gradient(135deg,var(--purple),var(--violet));
@@ -257,6 +298,9 @@ nav.scrolled{
 }
 
 @keyframes wordSlide{
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeUpEntrance{
   to{opacity:1;transform:translateY(0)}
 }
 
@@ -269,13 +313,15 @@ nav.scrolled{
   line-height:1.65;
   margin-bottom:40px;
   opacity:0;
-  animation:fadeUp .7s ease 1s forwards;
+  transform: translateY(20px);
+  animation:fadeUpEntrance .8s var(--ease-premium) 1.05s forwards;
 }
 
 .hero-ctas{
   display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;
   opacity:0;
-  animation:fadeUp .7s ease 1.15s forwards;
+  transform: translateY(20px);
+  animation:fadeUpEntrance .8s var(--ease-premium) 1.2s forwards;
 }
 @media (min-width: 480px) {
   .hero-ctas { flex-direction: row; justify-content: center; gap: 20px; }
@@ -295,7 +341,7 @@ nav.scrolled{
   border:none;
   position:relative;
   overflow:hidden;
-  transition:transform .2s,box-shadow .2s;
+  transition:transform .3s var(--ease-premium), box-shadow .3s var(--ease-premium);
   box-shadow:0 0 40px rgba(124,58,237,.3);
 }
 @media (min-width: 480px) { .btn-primary { width: auto; } }
@@ -304,9 +350,9 @@ nav.scrolled{
   position:absolute;inset:0;
   background:linear-gradient(135deg,var(--violet),var(--purple));
   opacity:0;
-  transition:opacity .3s;
+  transition:opacity .4s var(--ease-premium);
 }
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(124,58,237,.5)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 60px rgba(124,58,237,.55)}
 .btn-primary:hover::before{opacity:1}
 .btn-primary span{position:relative;z-index:1}
 
@@ -322,21 +368,21 @@ nav.scrolled{
   text-transform:uppercase;
   padding:16px 32px;
   border:1px solid var(--border-dim);
-  transition:color .2s,border-color .2s;
+  transition:all .3s var(--ease-premium);
 }
 @media (min-width: 480px) { .btn-ghost { width: auto; } }
-.btn-ghost:hover{color:var(--white);border-color:var(--border)}
+.btn-ghost:hover{color:var(--white);border-color:var(--border);background:rgba(250,250,250,0.02)}
 
 .hero-glow-line{
   width:1px;height:60px;
   background:linear-gradient(to bottom,transparent,var(--violet),transparent);
   margin:48px auto 0;
   opacity:0;
-  animation:fadeUp .6s ease 1.4s forwards;
+  animation:fadeUpEntrance .6s ease 1.4s forwards;
 }
 
 /* ─────────────────────────────────────────
-   STATS BAR (Responsive layout)
+   STATS BAR
 ───────────────────────────────────────── */
 .stats-bar{
   padding:32px 24px;
@@ -419,7 +465,7 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   WHAT WE SELL (Grid Fix)
+   WHAT WE SELL
 ───────────────────────────────────────── */
 .what-section{ background:var(--obsidian-2); }
 .sell-grid{
@@ -437,7 +483,7 @@ nav.scrolled{
   position:relative;
   overflow:hidden;
   border:1px solid transparent;
-  transition:border-color .3s,transform .3s;
+  transition:all 0.4s var(--ease-premium);
 }
 @media (min-width: 768px) { .sell-card { padding: 48px 32px; } }
 .sell-card::before{
@@ -445,11 +491,13 @@ nav.scrolled{
   position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(124,58,237,.08),transparent);
   opacity:0;
-  transition:opacity .3s;
+  transition:opacity .4s var(--ease-premium);
 }
 .sell-card:hover{
   border-color:var(--border);
-  transform:translateY(-4px);
+  transform:translateY(-5px);
+  background:rgba(24, 24, 31, 0.8);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 .sell-card:hover::before{opacity:1}
 
@@ -457,7 +505,10 @@ nav.scrolled{
   font-size:1.6rem;
   margin-bottom:20px;
   display:block;
-  filter:drop-shadow(0 0 12px rgba(168,85,247,.5));
+  transition: transform 0.4s var(--ease-premium);
+}
+.sell-card:hover .sell-icon {
+  transform: scale(1.12) rotate(4deg);
 }
 .sell-name{
   font-family:'Montserrat',sans-serif;
@@ -483,7 +534,7 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   SERVICES — 3 CARDS (Responsive Fix)
+   SERVICES — 3 CARDS
 ───────────────────────────────────────── */
 .services-grid{
   display:grid;
@@ -502,22 +553,22 @@ nav.scrolled{
   position:relative;
   overflow:hidden;
   display:flex;flex-direction:column;
-  transition:border-color .35s,box-shadow .35s,transform .35s;
+  transition:border-color .4s var(--ease-premium), box-shadow .4s var(--ease-premium), transform .4s var(--ease-premium);
 }
 @media (min-width: 768px) { .service-card { padding: 52px 40px; } }
 .service-card::after{
   content:'';
   position:absolute;top:0;left:0;right:0;
-  height:1px;
+  height:2px;
   background:linear-gradient(90deg,transparent,var(--purple),transparent);
   transform:scaleX(0);
-  transition:transform .4s ease;
+  transition:transform .45s var(--ease-premium);
 }
 .service-card:hover{
   border-color:var(--border);
   box-shadow:var(--glow-md);
+  transform:translateY(-8px);
 }
-@media (min-width:1025px) { .service-card:hover { transform:translateY(-6px); } }
 .service-card:hover::after{transform:scaleX(1)}
 
 .service-card.featured{
@@ -534,7 +585,7 @@ nav.scrolled{
   text-transform:uppercase;
   color:var(--gold);
   border:1px solid rgba(212,175,55,.3);
-  padding:4px 10px;
+  padding:5px 12px;
   width:fit-content;
   margin-bottom:24px;
 }
@@ -599,7 +650,7 @@ nav.scrolled{
   letter-spacing:.1em;
   text-transform:uppercase;
   padding:14px 24px;
-  transition:background .2s,border-color .2s,box-shadow .2s;
+  transition:all .3s var(--ease-premium);
 }
 @media (min-width: 480px) { .service-cta { width: auto; align-self: flex-start; } }
 .service-cta:hover{
@@ -657,7 +708,7 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   HOW IT WORKS (Process Stack)
+   HOW IT WORKS
 ───────────────────────────────────────── */
 .process-grid{
   display:grid;
@@ -675,13 +726,17 @@ nav.scrolled{
   padding:40px 24px;
   position:relative;
   overflow:hidden;
+  transition: all 0.4s var(--ease-premium);
+}
+.process-step:hover {
+  background: rgba(19, 19, 26, 0.7);
 }
 .process-step:hover .process-bg{opacity:1}
 .process-bg{
   position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(124,58,237,.07),transparent);
   opacity:0;
-  transition:opacity .35s;
+  transition:opacity .35s var(--ease-premium);
 }
 .process-n{
   font-family:'Cormorant Garamond',serif;
@@ -691,6 +746,11 @@ nav.scrolled{
   line-height:1;
   margin-bottom:20px;
   display:block;
+  transition: transform 0.4s var(--ease-premium);
+}
+.process-step:hover .process-n {
+  transform: translateY(-4px) scale(1.05);
+  color: rgba(168,85,247,0.3);
 }
 .process-title{
   font-family:'Montserrat',sans-serif;
@@ -754,7 +814,6 @@ nav.scrolled{
   position:relative;z-index:1;
 }
 
-/* Form structure with robust viewport defense */
 .email-wrap{
   display:flex;
   flex-direction: column;
@@ -777,11 +836,11 @@ nav.scrolled{
   font-weight:400;
   padding:16px 20px;
   outline:none;
-  transition:border-color .2s;
+  transition:all .3s var(--ease-premium);
 }
 @media (min-width: 480px) { .email-inp { border-right: none; } }
 .email-inp::placeholder{color:rgba(250,250,250,.25)}
-.email-inp:focus{border-color:var(--purple)}
+.email-inp:focus{border-color:var(--purple); background: rgba(250,250,250,.07); }
 
 .email-sub{
   width: 100%;
@@ -795,11 +854,11 @@ nav.scrolled{
   padding:16px 28px;
   border:none;
   white-space:nowrap;
-  transition:box-shadow .25s,transform .2s;
+  transition:box-shadow .3s var(--ease-premium), transform .3s var(--ease-premium);
   box-shadow:0 0 30px rgba(124,58,237,.3);
 }
 @media (min-width: 480px) { .email-sub { width: auto; } }
-.email-sub:hover{box-shadow:0 0 50px rgba(124,58,237,.5);transform:translateY(-1px)}
+.email-sub:hover{box-shadow:0 0 50px rgba(124,58,237,.5);transform:translateY(-2px)}
 .email-note{font-size:.65rem;color:rgba(250,250,250,.2);margin-top:12px;position:relative;z-index:1}
 
 .success-block{
@@ -843,7 +902,7 @@ footer{
   display:flex;gap:20px;flex-wrap:wrap;justify-content:center;
 }
 .footer-links a{
-  color:var(--white-60);font-size:.75rem;text-decoration:none;transition:color .2s;
+  color:var(--white-60);font-size:.75rem;text-decoration:none;transition:color .2s ease;
 }
 .footer-links a:hover{color:var(--white)}
 .footer-copy{font-size:.7rem;color:rgba(250,250,250,.2)}
@@ -853,7 +912,6 @@ footer{
 
 <div class="cur" id="cur"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">Penny<span>Tech</span></div>
   <ul class="nav-links">
@@ -864,11 +922,9 @@ footer{
   <button class="nav-cta">Book A Strategy</button>
 </nav>
 
-<!-- AMBIENT -->
 <div class="bg-orb orb-1"></div>
 <div class="bg-orb orb-2"></div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">Organic Client Acquisition System</div>
   <h1 class="hero-headline">
@@ -885,8 +941,7 @@ footer{
   <div class="hero-glow-line"></div>
 </section>
 
-<!-- STATS BAR -->
-<section class="stats-bar">
+<section class="stats-bar stagger-parent">
   <div class="stat">
     <span class="stat-n">$4.2M+</span>
     <span class="stat-l">Client Revenue Generated</span>
@@ -903,13 +958,14 @@ footer{
   </div>
 </section>
 
-<!-- WHAT WE SELL -->
 <section class="section what-section" id="about">
-  <div class="section-eyebrow">The Core Infrastructure</div>
-  <h2 class="section-title">Everything required to <em>monetize modern attention</em>.</h2>
-  <p class="section-sub">No useless vanity metrics. We construct asset-backed content engines focused entirely on pipeline development.</p>
+  <div class="reveal-on-scroll">
+    <div class="section-eyebrow">The Core Infrastructure</div>
+    <h2 class="section-title">Everything required to <em>monetize modern attention</em>.</h2>
+    <p class="section-sub">No useless vanity metrics. We construct asset-backed content engines focused entirely on pipeline development.</p>
+  </div>
   
-  <div class="sell-grid">
+  <div class="sell-grid stagger-parent">
     <div class="sell-card">
       <span class="sell-icon">🎯</span>
       <h3 class="sell-name">Offer Optimization</h3>
@@ -943,13 +999,13 @@ footer{
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="section" id="services">
-  <div class="section-eyebrow">Three Ways To Work With PennyTech</div>
-  <h2 class="section-title">Choose the level of support that fits where you <em>are right now</em>.</h2>
+  <div class="reveal-on-scroll">
+    <div class="section-eyebrow">Three Ways To Work With PennyTech</div>
+    <h2 class="section-title">Choose the level of support that fits where you <em>are right now</em>.</h2>
+  </div>
   
-  <div class="services-grid">
-    <!-- Card 1 -->
+  <div class="services-grid stagger-parent">
     <div class="service-card">
       <span class="service-num">01 / Starter</span>
       <h3 class="service-name">Creator Starter Kit</h3>
@@ -963,7 +1019,6 @@ footer{
       <button class="service-cta">Select Architecture</button>
     </div>
     
-    <!-- Card 2 (Featured) -->
     <div class="service-card featured">
       <div class="service-badge">Most Requested</div>
       <span class="service-num">02 / Scale</span>
@@ -979,7 +1034,6 @@ footer{
       <button class="service-cta">Deploy Engine</button>
     </div>
     
-    <!-- Card 3 -->
     <div class="service-card">
       <span class="service-num">03 / Omnipresent</span>
       <h3 class="service-name">The Dominance Suite</h3>
@@ -996,20 +1050,20 @@ footer{
   </div>
 </section>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
+<section class="manifesto reveal-on-scroll">
   <blockquote class="manifesto-quote">
     "Views are an unbacked currency. True authority is measured exclusively by the <strong>predictability of your client pipeline</strong>."
   </blockquote>
   <div class="manifesto-attr">— THE PENNYTECH PHILOSOPHY</div>
 </section>
 
-<!-- PROCESS -->
 <section class="section" id="process">
-  <div class="section-eyebrow">The Onboarding Sprint</div>
-  <h2 class="section-title">From zero clarity to a live, scalable content engine in <em>four clear phases</em>.</h2>
+  <div class="reveal-on-scroll">
+    <div class="section-eyebrow">The Onboarding Sprint</div>
+    <h2 class="section-title">From zero clarity to a live, scalable content engine in <em>four clear phases</em>.</h2>
+  </div>
   
-  <div class="process-grid">
+  <div class="process-grid stagger-parent">
     <div class="process-step">
       <div class="process-bg"></div>
       <span class="process-n">01</span>
@@ -1037,8 +1091,7 @@ footer{
   </div>
 </section>
 
-<!-- EMAIL CAPTURE CTA (Formspree Powered) -->
-<section class="cta-section" id="cta">
+<section class="cta-section reveal-on-scroll" id="cta">
   <div class="cta-bg-text">PENNYTECH</div>
   <h2 class="cta-title">Ready To Turn Attention<br/>Into Revenue?</h2>
   <p class="cta-sub">Drop your email below to reserve a custom pipeline diagnostic strategy call.</p>
@@ -1054,7 +1107,6 @@ footer{
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-logo">Penny<span>Tech</span></div>
@@ -1103,7 +1155,26 @@ document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn =>
   });
 });
 
-/* EMAIL SUBMIT (Connected to your Formspree Dashboard) */
+/* HIGH-PERFORMANCE INTERSECTION OBSERVER (For Polished Scroll Reveals)
+*/
+const animationObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.1,      // Fired as soon as 10% of the item enters screen
+  rootMargin: '0px 0px -40px 0px' // Slightly offset so reveal occurs smoothly upwards
+});
+
+// Register elements to observer
+document.querySelectorAll('.reveal-on-scroll, .stagger-parent').forEach((el) => {
+  animationObserver.observe(el);
+});
+
+
+/* EMAIL SUBMIT */
 function submitEmail(){
   const val=document.getElementById('emailVal').value.trim();
   const subBtn=document.querySelector('.email-sub');
@@ -1118,7 +1189,6 @@ function submitEmail(){
   subBtn.innerText = "Sending...";
   subBtn.disabled = true;
 
-  // Formspree API Integration via AJAX
   fetch('https://formspree.io/f/meewaewz', {
       method: 'POST',
       headers: {
