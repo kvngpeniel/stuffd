@@ -74,7 +74,7 @@ body{
 .cur.big{width:44px;height:44px;background:transparent;border:1.5px solid var(--violet);opacity:.7}
 
 /* ─────────────────────────────────────────
-   SCROLL-REVEAL ANIMATIONS (AUTOMATIC ON SCROLL)
+   SCROLL-REVEAL ANIMATIONS
 ───────────────────────────────────────── */
 .reveal-on-scroll {
   opacity: 0;
@@ -86,7 +86,6 @@ body{
   transform: translateY(0);
 }
 
-/* Dynamic grid card staggers */
 .stagger-parent .sell-card,
 .stagger-parent .service-card,
 .stagger-parent .process-step,
@@ -104,7 +103,6 @@ body{
   transform: translateY(0);
 }
 
-/* Precise micro-delays for cascading effects */
 .stagger-parent.active *:nth-child(1) { transition-delay: 0.05s; }
 .stagger-parent.active *:nth-child(2) { transition-delay: 0.12s; }
 .stagger-parent.active *:nth-child(3) { transition-delay: 0.19s; }
@@ -789,7 +787,7 @@ footer{
   <h1 class="hero-headline">
     <span class="line"><span class="word w1">We Turn</span> <span class="word w2 highlight">Attention</span></span>
     <span class="line"><span class="word w3">Into High-Ticket Clients</span></span>
-    <span class="line"><span class="word w4">In <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0;">60 Days.</span></span></span>
+    <span class="line"><span class="word w4">In 60 Days.</span></span>
   </h1>
   <p class="hero-sub">We build custom media infrastructure for founders and agencies looking to add $20k–$100k MRR through hyper-optimized short-form funnels. If we don’t completely launch your custom system on time, you don't pay a single dime.</p>
   <div class="hero-ctas">
@@ -987,7 +985,7 @@ footer{
 </footer>
 
 <script>
-/* CURSOR (Desktop execution only) */
+/* CURSOR */
 const cur = document.getElementById('cur');
 let mx=0,my=0;
 if (window.innerWidth > 1024) {
@@ -1007,12 +1005,12 @@ window.addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled',window.scrollY>40);
 });
 
-/* SMOOTH SCROLL TO FUNCTION */
+/* SMOOTH SCROLL */
 function scrollTo(sel){
   document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});
 }
 
-/* ATTACH LEAD OVERRIDES TO ALL CTAS */
+/* CTAS */
 document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -1020,7 +1018,7 @@ document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn =>
   });
 });
 
-/* AUTOMATIC SCROLL OBSERVER */
+/* OBSERVER ANIMATIONS */
 const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -1036,7 +1034,7 @@ document.querySelectorAll('.reveal-on-scroll, .stagger-parent').forEach((el) => 
   animationObserver.observe(el);
 });
 
-/* FORM SUBMISSION CONTROLLER */
+/* LEAD FORM */
 function submitEmail(){
   const val=document.getElementById('emailVal').value.trim();
   const subBtn=document.querySelector('.email-sub');
