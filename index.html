@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PennyTech — Premium Inbound Media Infrastructure for B2B Founders</title>
+<title>PennyTech — We Turn Attention Into High-Ticket Clients In 60 Days</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
 <style>
 /* ─────────────────────────────────────────
@@ -165,7 +165,7 @@ nav.scrolled{
 
 .nav-cta{
   background:transparent;
-  border:1px solid var(--border);
+  border:1px solid rgba(124,58,237,0.4);
   color:var(--white);
   font-family:'Montserrat',sans-serif;
   font-weight:600;
@@ -219,62 +219,57 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   HERO
+   HERO (DIRECT MATCH TO 1001575453_2.jpg)
 ───────────────────────────────────────── */
 .hero{
   min-height: auto; 
   display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
   text-align:center;
-  padding: 120px 24px 40px;
+  padding: 150px 24px 60px;
   position:relative;z-index:1;
 }
 @media (min-width: 768px) {
-  .hero { min-height: 100vh; justify-content: center; padding: 160px 40px 120px; }
+  .hero { min-height: 100vh; justify-content: center; padding: 180px 40px 120px; }
 }
 
 .hero::before{
   content:'';
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(124,58,237,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(124,58,237,.04) 1px,transparent 1px);
-  background-size:40px 40px;
+    linear-gradient(rgba(124,58,237,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,58,237,.03) 1px,transparent 1px);
+  background-size:50px 50px;
   pointer-events:none;
   mask-image:radial-gradient(ellipse at center,rgba(0,0,0,1) 20%,rgba(0,0,0,0) 80%);
 }
 
-/* Hero Elements Entrances */
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  border:1px solid var(--border);
-  padding:8px 16px;
+  display:inline-flex;align-items:center;gap:8px;
+  border: 1px solid rgba(124,58,237,0.3);
+  background: rgba(124,58,237,0.05);
+  padding:8px 20px;
   font-size:.65rem;
-  font-weight:600;
-  letter-spacing:.12em;
+  font-weight:700;
+  letter-spacing:.15em;
   text-transform:uppercase;
   color:var(--violet);
-  margin-bottom: 20px; 
+  margin-bottom: 28px; 
   backdrop-filter:blur(10px);
+  border-radius: 2px;
   opacity:0;
   transform: translateY(10px);
   animation:fadeUpEntrance .7s var(--ease-premium) .15s forwards;
-}
-.hero-eyebrow::before{
-  content:'';width:6px;height:6px;
-  background:var(--violet);
-  border-radius:50%;
-  box-shadow:0 0 10px var(--violet);
-  animation:pulse 2s infinite;
 }
 
 .hero-headline{
   font-family:'Montserrat',sans-serif;
   font-weight:900;
-  font-size:clamp(2.4rem, 7.5vw, 6.5rem);
-  line-height:.95;
-  letter-spacing:-0.04em;
-  max-width:900px;
-  margin-bottom: 16px; 
+  font-size:clamp(2.5rem, 8vw, 5.8rem);
+  line-height:1.05;
+  letter-spacing:-0.03em;
+  max-width:950px;
+  margin-bottom: 24px; 
+  color: var(--white);
 }
 .hero-headline .line{display:block;overflow:hidden}
 .hero-headline .word{
@@ -283,15 +278,14 @@ nav.scrolled{
   transform:translateY(110%);
   animation:wordSlide .8s var(--ease-premium) forwards;
 }
-.w1{animation-delay:.3s}
-.w2{animation-delay:.38s}
-.w3{animation-delay:.46s}
-.w4{animation-delay:.54s}
-.w5{animation-delay:.62s}
-.w6{animation-delay:.7s}
+.w1{animation-delay:.25s}
+.w2{animation-delay:.32s}
+.w3{animation-delay:.40s}
+.w4{animation-delay:.48s}
+.w5{animation-delay:.56s}
 
 .hero-headline .highlight{
-  background:linear-gradient(135deg,var(--purple),var(--violet));
+  background: linear-gradient(135deg, #a855f7, #c084fc);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
@@ -299,83 +293,70 @@ nav.scrolled{
 
 @keyframes wordSlide{ to{opacity:1;transform:translateY(0)} }
 @keyframes fadeUpEntrance{ to{opacity:1;transform:translateY(0)} }
-@keyframes pulse{ 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.3);opacity:.5} }
 
 .hero-sub{
   font-family:'Montserrat',sans-serif;
   font-weight:400;
-  font-size:clamp(.9rem,1.4vw,1.15rem);
-  color:var(--white-60);
-  max-width:560px;
-  line-height:1.65;
-  margin-bottom: 32px; 
+  font-size:clamp(.95rem, 1.5vw, 1.15rem);
+  color:rgba(250,250,250,0.7);
+  max-width:680px;
+  line-height:1.7;
+  margin-bottom: 40px; 
   opacity:0;
   transform: translateY(12px);
-  animation:fadeUpEntrance .7s var(--ease-premium) .85s forwards;
+  animation:fadeUpEntrance .7s var(--ease-premium) .75s forwards;
 }
 
 .hero-ctas{
   display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;
   opacity:0;
   transform: translateY(12px);
-  animation:fadeUpEntrance .7s var(--ease-premium) .95s forwards;
-}
-@media (min-width: 480px) {
-  .hero-ctas { flex-direction: row; justify-content: center; gap: 20px; }
+  animation:fadeUpEntrance .7s var(--ease-premium) .85s forwards;
 }
 
 .btn-primary{
   width: 100%;
-  max-width: 320px;
-  background:linear-gradient(135deg,var(--purple),var(--violet));
+  max-width: 380px;
+  background: #8b5cf6;
   color:var(--white);
   font-family:'Montserrat',sans-serif;
   font-weight:700;
-  font-size:.78rem;
-  letter-spacing:.1em;
+  font-size:.82rem;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  padding:16px 32px;
+  padding:20px 40px;
   border:none;
-  position:relative;
-  overflow:hidden;
-  transition:transform .3s var(--ease-premium), box-shadow .3s var(--ease-premium);
-  box-shadow:0 0 40px rgba(124,58,237,.3);
+  transition:background .3s ease, transform .3s var(--ease-premium), box-shadow .3s ease;
 }
-@media (min-width: 480px) { .btn-primary { width: auto; } }
-.btn-primary::before{
-  content:'';
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--violet),var(--purple));
-  opacity:0;
-  transition:opacity .4s var(--ease-premium);
+@media (min-width: 480px) { .btn-primary { width: 100%; } }
+.btn-primary:hover{
+  background: #a78bfa;
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(139,92,246,0.4);
 }
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 60px rgba(124,58,237,.55)}
-.btn-primary:hover::before{opacity:1}
-.btn-primary span{position:relative;z-index:1}
 
 .btn-ghost{
   width: 100%;
-  max-width: 320px;
+  max-width: 380px;
   background:transparent;
-  color:var(--white-60);
+  color:rgba(250,250,250,0.4);
   font-family:'Montserrat',sans-serif;
-  font-weight:500;
-  font-size:.78rem;
-  letter-spacing:.08em;
+  font-weight:600;
+  font-size:.82rem;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  padding:16px 32px;
-  border:1px solid var(--border-dim);
+  padding:20px 40px;
+  border:1px solid rgba(250,250,250,0.08);
   transition:all .3s var(--ease-premium);
 }
-@media (min-width: 480px) { .btn-ghost { width: auto; } }
-.btn-ghost:hover{color:var(--white);border-color:var(--border);background:rgba(250,250,250,0.02)}
+.btn-ghost:hover{color:var(--white);border-color:rgba(250,250,250,0.2);background:rgba(250,250,250,0.02)}
 
 .hero-glow-line{
-  width:1px;height:60px;
+  width:1px;height:70px;
   background:linear-gradient(to bottom,transparent,var(--violet),transparent);
-  margin: 32px auto 0; 
+  margin: 48px auto 0; 
   opacity:0;
-  animation:fadeUpEntrance .6s ease 1.1s forwards;
+  animation:fadeUpEntrance .6s ease 1.0s forwards;
 }
 
 /* ─────────────────────────────────────────
@@ -525,7 +506,7 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   SERVICES — 3 CARDS
+   SERVICES
 ───────────────────────────────────────── */
 .services-grid{
   display:grid;
@@ -781,7 +762,7 @@ footer{
 .footer-links{ display:flex;gap:20px;flex-wrap:wrap;justify-content:center; }
 .footer-links a{ color:var(--white-60);font-size:.75rem;text-decoration:none;transition:color .2s ease; }
 .footer-links a:hover{color:var(--white)}
-.footer-copy{font-size:.7rem;color:rgba(250,250,250,.2)}
+.footer-copy{font-size:.7rm;color:rgba(250,250,250,.2)}
 </style>
 </head>
 <body id="top">
@@ -792,9 +773,9 @@ footer{
 <nav id="nav">
   <div class="nav-logo">Penny<span>Tech</span></div>
   <ul class="nav-links">
-    <li><a href="#about">The Infrastructure</a></li>
-    <li><a href="#services">Solutions</a></li>
-    <li><a href="#process">The Sprint</a></li>
+    <li><a href="#about">What You Get</a></li>
+    <li><a href="#services">Our Plans</a></li>
+    <li><a href="#process">How We Do It</a></li>
   </ul>
   <button class="nav-cta">Book A Strategy</button>
 </nav>
@@ -803,18 +784,17 @@ footer{
 <div class="bg-orb orb-1"></div>
 <div class="bg-orb orb-2"></div>
 
-<!-- HERO -->
+<!-- HERO SECTION FROM 1001575453_2.jpg -->
 <section class="hero">
-  <div class="hero-eyebrow">High-Ticket Acquisition Infrastructure</div>
+  <div class="hero-eyebrow">Organic Client Acquisition System</div>
   <h1 class="hero-headline">
-    <span class="line"><span class="word w1">We</span> <span class="word w2">Build</span> <span class="word w3">Your</span></span>
-    <span class="line"><span class="word w4 highlight">Inbound Engine</span></span>
-    <span class="line"><span class="word w5">In 30 Days.</span></span>
-    <span class="line"><span class="word w6">Fully Managed.</span></span>
+    <span class="line"><span class="word w1">We Turn</span> <span class="word w2 highlight">Attention</span></span>
+    <span class="line"><span class="word w3">Into High-Ticket</span></span>
+    <span class="line"><span class="word w4">Clients In 60 Days.</span></span>
   </h1>
-  <p class="hero-sub">Stop chasing cold leads or wasting hours editing. We engineer custom short-form funnel infrastructure that transforms your expertise into high-ticket inbound pipelines while you stay focused on running your business.</p>
+  <p class="hero-sub">We build custom media infrastructure for founders and agencies looking to add $20k–$100k MRR through hyper-optimized short-form funnels. If we don’t completely launch your custom system on time, you don't pay a single dime.</p>
   <div class="hero-ctas">
-    <button class="btn-primary"><span>Secure Strategy Call</span></button>
+    <button class="btn-primary">Secure Strategy Call</button>
     <button class="btn-ghost" onclick="scrollTo('#services')">Explore Solutions</button>
   </div>
   <div class="hero-glow-line"></div>
@@ -824,57 +804,57 @@ footer{
 <section class="stats-bar checker-scroll stagger-parent">
   <div class="stat">
     <span class="stat-n">$4.2M+</span>
-    <span class="stat-l">Verified Client Revenue</span>
+    <span class="stat-l">Made For Our Clients</span>
   </div>
   <div class="stat-divider"></div>
   <div class="stat">
     <span class="stat-n">48M+</span>
-    <span class="stat-l">Organic Views Generated</span>
+    <span class="stat-l">Total Video Views</span>
   </div>
   <div class="stat-divider"></div>
   <div class="stat">
     <span class="stat-n">110+</span>
-    <span class="stat-l">High-Ticket Leads Closed</span>
+    <span class="stat-l">High-Paying Clients Found</span>
   </div>
 </section>
 
 <!-- WHAT WE SELL -->
 <section class="section what-section" id="about">
   <div class="reveal-on-scroll checker-scroll">
-    <div class="section-eyebrow">The Core Infrastructure</div>
-    <h2 class="section-title">Everything required to <em>monetize modern attention</em>.</h2>
-    <p class="section-sub">No useless vanity metrics. We construct asset-backed content engines focused entirely on bottom-line pipeline development.</p>
+    <div class="section-eyebrow">The Complete Package</div>
+    <h2 class="section-title">Everything you need to <em>get premium clients online</em>.</h2>
+    <p class="section-sub">No fake internet points. We only care about building a video engine that gets real buyers to find you.</p>
   </div>
   
   <div class="sell-grid checker-scroll stagger-parent">
     <div class="sell-card">
       <span class="sell-icon">🎯</span>
-      <h3 class="sell-name">Alpha Positioning</h3>
-      <p class="sell-desc">We audit and restructure your core offer to mathematically justify $10k+ price points to premium buyers.</p>
+      <h3 class="sell-name">Perfect Offer</h3>
+      <p class="sell-desc">We fix your pricing and messaging so top-tier clients easily see why you are worth more money.</p>
       <span class="sell-num">01</span>
     </div>
     <div class="sell-card">
       <span class="sell-icon">🎥</span>
-      <h3 class="sell-name">Authority Scripting</h3>
-      <p class="sell-desc">Zero fluff. We write psychological, friction-free narrative frameworks that filter out tire-kickers and pre-sell your worldview.</p>
+      <h3 class="sell-name">Easy Scripts</h3>
+      <p class="sell-desc">No boring videos. We write simple scripts that show your expertise and make buyers want to work with you.</p>
       <span class="sell-num">02</span>
     </div>
     <div class="sell-card">
       <span class="sell-icon">💎</span>
-      <h3 class="sell-name">Cinema-Grade Cuts</h3>
-      <p class="sell-desc">Production house editing designed for executive audiences. High-end pacing profiles that command market respect.</p>
+      <h3 class="sell-name">Expert Editing</h3>
+      <p class="sell-desc">Clean, high-quality, professional video editing that makes your brand look highly respectable online.</p>
       <span class="sell-num">03</span>
     </div>
     <div class="sell-card">
       <span class="sell-icon">⚡</span>
-      <h3 class="sell-name">The Invisible Bridge</h3>
-      <p class="sell-desc">Custom landing pages and automated multi-channel touchpoints built to capture, hold, and convert traffic on autopilot.</p>
+      <h3 class="sell-name">Smart Pages</h3>
+      <p class="sell-desc">We build beautiful, simple web pages that capture people watching your videos and turn them into calls.</p>
       <span class="sell-num">04</span>
     </div>
     <div class="sell-card">
       <span class="sell-icon">💼</span>
-      <h3 class="sell-name">SDR System Automation</h3>
-      <p class="sell-desc">Pre-call conditioning systems that nurture booked discovery appointments so prospects show up completely ready to sign.</p>
+      <h3 class="sell-name">Auto Booking</h3>
+      <p class="sell-desc">We set up easy software tracking so your leads are ready, happy, and excited to buy before your call starts.</p>
       <span class="sell-num">05</span>
     </div>
   </div>
@@ -883,51 +863,51 @@ footer{
 <!-- SERVICES -->
 <section class="section" id="services">
   <div class="reveal-on-scroll checker-scroll">
-    <div class="section-eyebrow">Three Mechanisms of Scale</div>
-    <h2 class="section-title">Choose the level of support that fits your <em>current revenue bracket</em>.</h2>
+    <div class="section-eyebrow">Choose Your Speed</div>
+    <h2 class="section-title">Pick the perfect plan for <em>your current business size</em>.</h2>
   </div>
   
   <div class="services-grid checker-scroll stagger-parent">
     <div class="service-card">
-      <span class="service-num">01 / Foundation</span>
-      <h3 class="service-name">The Authority Starter</h3>
-      <p class="service-tagline">“For established founders looking to cleanly transition authority into a systematized channel.”</p>
-      <p class="service-desc">A complete strategic launchkit built for operators ready to shift from sporadic posting to asset-driven content architecture.</p>
+      <span class="service-num">01 / Starter</span>
+      <h3 class="service-name">The Authority Launch</h3>
+      <p class="service-tagline">“Perfect for founders who want to start getting clients with simple videos.”</p>
+      <p class="service-desc">A straightforward plan built to get you out of the cold-calling routine and onto social media cleanly.</p>
       <ul class="service-list">
-        <li>Custom Brand Identity & Visual Rules</li>
-        <li>12 Premium Cinematic Short Assets / mo</li>
-        <li>Inbound Bridge Funnel Implementation</li>
+        <li>Custom Brand Look & Visual Style</li>
+        <li>12 Premium Short Videos Per Month</li>
+        <li>Simple Lead Funnel Setup</li>
       </ul>
-      <button class="service-cta">Select Architecture</button>
+      <button class="service-cta">Choose This Plan</button>
     </div>
     
     <div class="service-card featured">
-      <div class="service-badge">Flagship Protocol</div>
+      <div class="service-badge">Most Popular</div>
       <span class="service-num">02 / Scale</span>
-      <h3 class="service-name">The Growth Engine</h3>
-      <p class="service-tagline">“Complete infrastructure implementation to dominate market demand.”</p>
-      <p class="service-desc">Our fully managed content ecosystem. We step in as your fractional media team to predictably scale inbound pipelines by an extra $30k+/mo.</p>
+      <h3 class="service-name">The Inbound Engine</h3>
+      <p class="service-tagline">“Our complete hands-off system to get new clients booked every single week.”</p>
+      <p class="service-desc">We act as your own video and marketing team. We do all the heavy lifting so you can just focus on closing deals.</p>
       <ul class="service-list">
-        <li>Deep Offer & Messaging Repositioning</li>
-        <li>20 High-Converting Conversion Clips / mo</li>
-        <li>Automated CRM & SDR Nurturing Vaults</li>
-        <li>Dedicated Inbound Performance Architect</li>
+        <li>Deep Offer Planning & New Messages</li>
+        <li>20 High-Converting Short Videos Per Month</li>
+        <li>Automated Client Email Nurturing Setup</li>
+        <li>A Dedicated Specialist Managing Your Account</li>
       </ul>
-      <button class="service-cta">Deploy Engine</button>
+      <button class="service-cta">Deploy My Engine</button>
     </div>
     
     <div class="service-card">
-      <span class="service-num">03 / Omnipresent</span>
-      <h3 class="service-name">The Market Takeover</h3>
-      <p class="service-tagline">“Total institutional dominance and multi-channel client acquisition.”</p>
-      <p class="service-desc">For high-scale firms requiring aggressive multi-platform ecosystem scaling, immense volume outputs, and custom tech integrations.</p>
+      <span class="service-num">03 / Complete</span>
+      <h3 class="service-name">Total Market Takeover</h3>
+      <p class="service-tagline">“For larger companies who want to be everywhere online all at once.”</p>
+      <p class="service-desc">An aggressive plan for teams who want to push huge video numbers across every single major website at the exact same time.</p>
       <ul class="service-list">
-        <li>Omnipresent Syndication (X, YT, IG, LI)</li>
-        <li>35 Strategic High-Retention Assets / mo</li>
-        <li>Advanced Lead Generation Funnels</li>
-        <li>Priority 24/7 Slack Engineering Channel</li>
+        <li>Post Across YouTube, Instagram, X, & LinkedIn</li>
+        <li>35 Strategic High-Quality Videos Per Month</li>
+        <li>Advanced Lead Generation Website Tools</li>
+        <li>Priority 24/7 Slack Chat Support With Us</li>
       </ul>
-      <button class="service-cta">Acquire Market</button>
+      <button class="service-cta">Take Over The Market</button>
     </div>
   </div>
 </section>
@@ -935,42 +915,42 @@ footer{
 <!-- MANIFESTO -->
 <section class="manifesto reveal-on-scroll checker-scroll">
   <blockquote class="manifesto-quote">
-    "Views are an unbacked currency. True authority is measured exclusively by the <strong>predictability of your client pipeline</strong>."
+    "Views don't pay the bills. True online success means having a <strong>steady flow of great clients booking calls with you</strong>."
   </blockquote>
-  <div class="manifesto-attr">— THE PENNYTECH PHILOSOPHY</div>
+  <div class="manifesto-attr">— THE PENNYTECH WAY</div>
 </section>
 
 <!-- PROCESS -->
 <section class="section" id="process">
   <div class="reveal-on-scroll checker-scroll">
-    <div class="section-eyebrow">The Integration Sprint</div>
-    <h2 class="section-title">From zero momentum to a live, automated pipeline asset in <em>four streamlined phases</em>.</h2>
+    <div class="section-eyebrow">Our Easy 4-Step Process</div>
+    <h2 class="section-title">Go from zero video views to a fully automated <em>client system in 4 simple steps</em>.</h2>
   </div>
   
   <div class="process-grid checker-scroll stagger-parent">
     <div class="process-step">
       <div class="process-bg"></div>
       <span class="process-n">01</span>
-      <h3 class="process-title">Extraction Sprint</h3>
-      <p class="process-desc">A deep 90-minute monthly session to cleanly extract your core corporate philosophies, intellectual property, and client case assets.</p>
+      <h3 class="process-title">1. Short Interview</h3>
+      <p class="process-desc">We do one easy 90-minute video chat a month to pull out your best stories, business ideas, and lessons.</p>
     </div>
     <div class="process-step">
       <div class="process-bg"></div>
       <span class="process-n">02</span>
-      <h3 class="process-title">Premium Assembly</h3>
-      <p class="process-desc">Our media house chops, edits, color grades, and polishes your raw footage into executive-level authority assets.</p>
+      <h3 class="process-title">2. Pro Editing</h3>
+      <p class="process-desc">Our team takes your raw footage and cleans it up, edits it down, and makes it look incredibly professional.</p>
     </div>
     <div class="process-step">
       <div class="process-bg"></div>
       <span class="process-n">03</span>
-      <h3 class="process-title">Funnel Engineering</h3>
-      <p class="process-desc">We construct seamless digital bridge assets to funnel targeted, high-intent viewers straight onto your calendar bookings.</p>
+      <h3 class="process-title">3. Funnel Building</h3>
+      <p class="process-desc">We set up easy online bridges that turn people watching your videos into real bookings on your calendar.</p>
     </div>
     <div class="process-step">
       <div class="process-bg"></div>
       <span class="process-n">04</span>
-      <h3 class="process-title">System Launch</h3>
-      <p class="process-desc">Assets scale systematically across platform algorithms, instantly transforming cold market attention into pre-sold inbound leads.</p>
+      <h3 class="process-title">4. System Launch</h3>
+      <p class="process-desc">Your videos go live. They grab the attention of ideal buyers and turn cold watchers into ready-to-buy clients.</p>
     </div>
   </div>
 </section>
@@ -978,17 +958,17 @@ footer{
 <!-- EMAIL CAPTURE CTA -->
 <section class="cta-section reveal-on-scroll checker-scroll" id="cta">
   <div class="cta-bg-text">PENNYTECH</div>
-  <h2 class="cta-title">Build Your Custom Inbound<br/>Engine Blueprint.</h2>
-  <p class="cta-sub">Enter your business email below to secure a 1-on-1 media infrastructure audit. We will map out your exact funnel layout. Zero obligation.</p>
+  <h2 class="cta-title">Get Your Free Inbound<br/>Business Blueprint.</h2>
+  <p class="cta-sub">Type your business email below to request a 1-on-1 plan. We will show you exactly how to get your next clients. 100% free.</p>
   
   <div class="email-wrap" id="emailWrap">
     <input type="email" class="email-inp" id="emailVal" placeholder="Enter your business email..." required/>
-    <button class="email-sub" onclick="submitEmail()">Build My Blueprint →</button>
+    <button class="email-sub" onclick="submitEmail()">Get My Blueprint →</button>
   </div>
-  <p class="email-note" id="emailNote">Strictly limited openings. We only deploy infrastructure for 3 new firms per month.</p>
+  <p class="email-note" id="emailNote">Warning: Openings are limited. We only build systems for 3 new companies per month.</p>
   
   <div class="success-block" id="successBlock">
-    <span>✓</span> Request submitted. Check your inbox for booking details momentarily.
+    <span>✓</span> Request received! Please check your email inbox right now to book your call.
   </div>
 </section>
 
@@ -996,7 +976,7 @@ footer{
 <footer>
   <div>
     <div class="footer-logo">Penny<span>Tech</span></div>
-    <div class="footer-tagline" style="margin-top:8px">Attention. Authority. Pipelines.</div>
+    <div class="footer-tagline" style="margin-top:8px">Attention. Trust. Clients.</div>
   </div>
   <div class="footer-links">
     <a href="#">Instagram</a>
@@ -1041,12 +1021,9 @@ document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn =>
   });
 });
 
-/* ────────────────────────────────────────────────────────────────────────
-   AUTOMATIC SCROLL OBSERVER (NO CLICKS REQUIRED TO ACTIVATE)
-──────────────────────────────────────────────────────────────────────── */
+/* AUTOMATIC SCROLL OBSERVER */
 const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    // Triggers instantly when the user scrolls past the top frame margin of the asset block
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
     }
@@ -1056,12 +1033,11 @@ const animationObserver = new IntersectionObserver((entries) => {
   rootMargin: '0px 0px -40px 0px' 
 });
 
-// Watch all layout zones automatically
 document.querySelectorAll('.reveal-on-scroll, .stagger-parent').forEach((el) => {
   animationObserver.observe(el);
 });
 
-/* FORM SUBMISSION DASHBOARD CONTROLLER */
+/* FORM SUBMISSION CONTROLLER */
 function submitEmail(){
   const val=document.getElementById('emailVal').value.trim();
   const subBtn=document.querySelector('.email-sub');
@@ -1098,16 +1074,16 @@ function submitEmail(){
   })
   .catch(error => {
       console.log(error);
-      subBtn.innerText = "Build My Blueprint →";
+      subBtn.innerText = "Get My Blueprint →";
       subBtn.disabled = false;
       alert("Something went wrong. Please check your network or try again.");
   });
 }
 
-/* HANDLES IN-FIELD LOGIC KEY STROKES */
 document.getElementById('emailVal').addEventListener('keydown',e=>{
   if(e.key==='Enter') submitEmail();
 });
 </script>
 </body>
 </html>
+  
