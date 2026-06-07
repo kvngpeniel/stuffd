@@ -310,6 +310,9 @@ nav.scrolled{
   transform: translateY(12px);
   animation:fadeUpEntrance .7s var(--ease-premium) .85s forwards;
 }
+@media (min-width: 480px) {
+  .hero-ctas { flex-direction: row; justify-content: center; gap: 16px; }
+}
 
 .btn-primary{
   width: 100%;
@@ -325,7 +328,7 @@ nav.scrolled{
   border:none;
   transition:background .3s ease, transform .3s var(--ease-premium), box-shadow .3s ease;
 }
-@media (min-width: 480px) { .btn-primary { width: 100%; } }
+@media (min-width: 480px) { .btn-primary { width: auto; } }
 .btn-primary:hover{
   background: #a78bfa;
   transform:translateY(-2px);
@@ -346,6 +349,7 @@ nav.scrolled{
   border:1px solid rgba(250,250,250,0.08);
   transition:all .3s var(--ease-premium);
 }
+@media (min-width: 480px) { .btn-ghost { width: auto; } }
 .btn-ghost:hover{color:var(--white);border-color:rgba(250,250,250,0.2);background:rgba(250,250,250,0.02)}
 
 .hero-glow-line{
@@ -759,13 +763,14 @@ footer{
 .footer-links{ display:flex;gap:20px;flex-wrap:wrap;justify-content:center; }
 .footer-links a{ color:var(--white-60);font-size:.75rem;text-decoration:none;transition:color .2s ease; }
 .footer-links a:hover{color:var(--white)}
-.footer-copy{font-size:.7rm;color:rgba(250,250,250,.2)}
+.footer-copy{font-size:.7rem;color:rgba(250,250,250,.2)}
 </style>
 </head>
 <body id="top">
 
 <div class="cur" id="cur"></div>
 
+<!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">Penny<span>Tech</span></div>
   <ul class="nav-links">
@@ -776,12 +781,312 @@ footer{
   <button class="nav-cta">Book A Strategy Call</button>
 </nav>
 
+<!-- AMBIENT -->
 <div class="bg-orb orb-1"></div>
 <div class="bg-orb orb-2"></div>
 
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-eyebrow">For Coaches, Founders & Business Owners</div>
   <h1 class="hero-headline">
     <span class="line"><span class="word w1">We Turn</span> <span class="word w2 highlight">Attention</span></span>
     <span class="line"><span class="word w3">Into High-Ticket Clients</span></span>
-    <span class="line"><span class="word w
+    <span class="line"><span class="word w4">In 60 Days.</span></span>
+  </h1>
+  <p class="hero-sub">Stop chasing algorithms or running burning ad spend. We build automated media funnels that turn short-form content into booked premium calls with ideal buyers—completely hands-off.</p>
+  <div class="hero-ctas">
+    <button class="btn-primary">Claim Your Inbound Strategy</button>
+    <button class="btn-ghost" onclick="scrollTo('#services')">Compare Asset Plans</button>
+  </div>
+  <div class="hero-glow-line"></div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar checker-scroll stagger-parent">
+  <div class="stat">
+    <span class="stat-n">$4.2M+</span>
+    <span class="stat-l">Client Revenue Generated</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-n">48M+</span>
+    <span class="stat-l">Targeted Business Views</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-n">110+</span>
+    <span class="stat-l">Premium Programs Scaled</span>
+  </div>
+</section>
+
+<!-- WHAT WE SELL -->
+<section class="section what-section" id="about">
+  <div class="reveal-on-scroll checker-scroll">
+    <div class="section-eyebrow">The Content-To-Client Infrastructure</div>
+    <h2 class="section-title">The assets we build to <em>monetize your personal brand</em>.</h2>
+    <p class="section-sub">We don't optimize for vanity metrics. Every single piece of content we script and edit serves to turn cold scrollers into premium closed deals.</p>
+  </div>
+  
+  <div class="sell-grid checker-scroll stagger-parent">
+    <div class="sell-card">
+      <span class="sell-icon">🎯</span>
+      <h3 class="sell-name">Offer Optimization</h3>
+      <p class="sell-desc">We structure your consulting or program model so it naturally commands $3k–$10k prices effortlessly.</p>
+      <span class="sell-num">01</span>
+    </div>
+    <div class="sell-card">
+      <span class="sell-icon">🎥</span>
+      <h3 class="sell-name">Authority Scripting</h3>
+      <p class="sell-desc">No dancing or trending sounds. Pure value scripts that position you as the definitive niche expert.</p>
+      <span class="sell-num">02</span>
+    </div>
+    <div class="sell-card">
+      <span class="sell-icon">💎</span>
+      <h3 class="sell-name">Premium Editing</h3>
+      <p class="sell-desc">Retain high-intent viewers with polished, high-status production elements tailored for real buyers.</p>
+      <span class="sell-num">03</span>
+    </div>
+    <div class="sell-card">
+      <span class="sell-icon">⚡</span>
+      <h3 class="sell-name">Conversion Funnels</h3>
+      <p class="sell-desc">Custom high-converting landing assets designed to capture video viewers and push them straight onto your calendar.</p>
+      <span class="sell-num">04</span>
+    </div>
+    <div class="sell-card">
+      <span class="sell-icon">💼</span>
+      <h3 class="sell-name">Pipeline Triage</h3>
+      <p class="sell-desc">Full backend software integration to qualify leads so your calendar is only booked with highly qualified buyers.</p>
+      <span class="sell-num">05</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="reveal-on-scroll checker-scroll">
+    <div class="section-eyebrow">Inbound Scaling Models</div>
+    <h2 class="section-title">Select the right package for <em>your current revenue goals</em>.</h2>
+  </div>
+  
+  <div class="services-grid checker-scroll stagger-parent">
+    <div class="service-card">
+      <span class="service-num">01 / Authority</span>
+      <h3 class="service-name">The Brand Incubator</h3>
+      <p class="service-tagline">“Perfect for coaches and consultants looking to pivot into an inbound ecosystem.”</p>
+      <p class="service-desc">Establish your baseline digital presence. Move away from exhausting cold outbound and start attracting inbound interest.</p>
+      <ul class="service-list">
+        <li>Core Positioning & Offer Alignment</li>
+        <li>12 High-Authority Short Videos / Mo</li>
+        <li>Basic VSL Landing Page Layout</li>
+      </ul>
+      <button class="service-cta">Apply For This Plan</button>
+    </div>
+    
+    <div class="service-card featured">
+      <div class="service-badge">Highest Leverage</div>
+      <span class="service-num">02 / Scale</span>
+      <h3 class="service-name">The Omnipresent Funnel</h3>
+      <p class="service-tagline">“Our complete end-to-end infrastructure built to secure clients consistently every week.”</p>
+      <p class="service-desc">We act as your complete fractional media partners. We map out your content, handle editing, build systems, and maintain your lead pipeline.</p>
+      <ul class="service-list">
+        <li>Premium High-Ticket Funnel Architecture</li>
+        <li>20 Optimized Client Acquisition Videos / Mo</li>
+        <li>Automated Lead Nurturing Email Sequence</li>
+        <li>Dedicated Pipeline Strategist & Support</li>
+      </ul>
+      <button class="service-cta">Deploy Your System</button>
+    </div>
+    
+    <div class="service-card">
+      <span class="service-num">03 / Enterprise</span>
+      <h3 class="service-name">The Category Dominator</h3>
+      <p class="service-tagline">“For scaling founders who want total organic dominance across multiple channels.”</p>
+      <p class="service-desc">An aggressive multichannel growth plan built for established operations ready to capture total sector attention simultaneously.</p>
+      <ul class="service-list">
+        <li>Cross-Platform Scale (YouTube, IG, LinkedIn, X)</li>
+        <li>35 Strategic Authority Video Assets / Mo</li>
+        <li>Advanced Lead Scoring & Funnel Optimization</li>
+        <li>Priority 24/7 Slack Channel Communication</li>
+      </ul>
+      <button class="service-cta">Dominate Your Market</button>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto reveal-on-scroll checker-scroll">
+  <blockquote class="manifesto-quote">
+    "Views are vanity. Real enterprise scale means transforming <strong>raw impressions into high-ticket inbound consultations</strong>."
+  </blockquote>
+  <div class="manifesto-attr">— THE PENNYTECH WAY</div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="reveal-on-scroll checker-scroll">
+    <div class="section-eyebrow">The 60-Day Implementation Timeline</div>
+    <h2 class="section-title">How we take your expertise and <em>automate your lead pipeline</em>.</h2>
+  </div>
+  
+  <div class="process-grid checker-scroll stagger-parent">
+    <div class="process-step">
+      <div class="process-bg"></div>
+      <span class="process-n">01</span>
+      <h3 class="process-title">1. Strategy Extraction</h3>
+      <p class="process-desc">A single monthly 90-minute recording session extracts your proprietary insights, knowledge, and offer mechanics.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-bg"></div>
+      <span class="process-n">02</span>
+      <h3 class="process-title">2. Status Editing</h3>
+      <p class="process-desc">Our team isolates your strongest hooks, edits for dynamic flow, and shapes premium videos that attract qualified buyers.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-bg"></div>
+      <span class="process-n">03</span>
+      <h3 class="process-title">3. Funnel Deployment</h3>
+      <p class="process-desc">We build the landing systems, VSL pipelines, and automation flows needed to seamlessly capture and pre-sell your audience.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-bg"></div>
+      <span class="process-n">04</span>
+      <h3 class="process-title">4. Inbound Scale</h3>
+      <p class="process-desc">The content engine launches. Your media profile begins actively sourcing, filtering, and booking qualified high-ticket consultations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE CTA -->
+<section class="cta-section reveal-on-scroll checker-scroll" id="cta">
+  <div class="cta-bg-text">PENNYTECH</div>
+  <h2 class="cta-title">Request Your Custom<br/>Inbound Blueprint.</h2>
+  <p class="cta-sub">Provide your business email below to request a tailored architecture layout. We will reveal exactly how to build your client system. 100% free.</p>
+  
+  <div class="email-wrap" id="emailWrap">
+    <input type="email" class="email-inp" id="emailVal" placeholder="Enter your business email..." required/>
+    <button class="email-sub" onclick="submitEmail()">Get My Blueprint →</button>
+  </div>
+  <p class="email-note" id="emailNote">Notice: Partner cohort spaces are strictly limited. We only integrate 3 new systems per month.</p>
+  
+  <div class="success-block" id="successBlock">
+    <span>✓</span> Request logged! Check your inbox immediately to lock in your strategy review session.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Penny<span>Tech</span></div>
+    <div class="footer-tagline" style="margin-top:8px">Attention. Trust. Scale.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">X / Twitter</a>
+  </div>
+  <div class="footer-copy">© 2026 PennyTech. All rights reserved.</div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur = document.getElementById('cur');
+let mx=0,my=0;
+if (window.innerWidth > 1024) {
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+  });
+  document.querySelectorAll('button,a,input').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+/* NAV SCROLL EFFECT */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>40);
+});
+
+/* SMOOTH SCROLL */
+function scrollTo(sel){
+  document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});
+}
+
+/* CTAS */
+document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    scrollTo('#cta');
+  });
+});
+
+/* OBSERVER ANIMATIONS */
+const animationObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.05, 
+  rootMargin: '0px 0px -40px 0px' 
+});
+
+document.querySelectorAll('.reveal-on-scroll, .stagger-parent').forEach((el) => {
+  animationObserver.observe(el);
+});
+
+/* LEAD FORM */
+function submitEmail(){
+  const val=document.getElementById('emailVal').value.trim();
+  const subBtn=document.querySelector('.email-sub');
+  
+  if(!val||!val.includes('@')){
+    const inp=document.getElementById('emailVal');
+    inp.style.borderColor='rgba(212,175,55,.6)';
+    setTimeout(()=>inp.style.borderColor='',1500);
+    return;
+  }
+  
+  subBtn.innerText = "Processing...";
+  subBtn.disabled = true;
+
+  fetch('https://formspree.io/f/meewaewz', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+          email: val,
+          message: 'Lead requested an Inbound Engine Blueprint via PennyTech homepage.'
+      })
+  })
+  .then(response => {
+      if (response.ok) {
+          document.getElementById('emailWrap').style.display='none';
+          document.getElementById('emailNote').style.display='none';
+          document.getElementById('successBlock').classList.add('on');
+      } else {
+          throw new Error('Formspree response not ok');
+      }
+  })
+  .catch(error => {
+      console.log(error);
+      subBtn.innerText = "Get My Blueprint →";
+      subBtn.disabled = false;
+      alert("Something went wrong. Please check your network or try again.");
+  });
+}
+
+document.getElementById('emailVal').addEventListener('keydown',e=>{
+  if(e.key==='Enter') {
+    e.preventDefault();
+    submitEmail();
+  }
+});
+</script>
+</body>
+</html>
