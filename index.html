@@ -39,7 +39,12 @@ body{
   font-weight:400;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-  cursor:none;
+}
+
+/* Custom desktop-only cursor style */
+@media (min-width: 1025px) {
+  body { cursor: none; }
+  .nav-cta, .btn-primary, .btn-ghost, .service-cta, .email-sub { cursor: none; }
 }
 
 /* ─────────────────────────────────────────
@@ -55,6 +60,10 @@ body{
   transform:translate(-50%,-50%);
   transition:width .25s,height .25s,background .25s,opacity .25s;
   mix-blend-mode:screen;
+  display: none; /* Hidden by default on mobile */
+}
+@media (min-width: 1025px) {
+  .cur { display: block; }
 }
 .cur.big{width:44px;height:44px;background:transparent;border:1.5px solid var(--violet);opacity:.7}
 
@@ -106,7 +115,6 @@ nav.scrolled{
   letter-spacing:.1em;
   text-transform:uppercase;
   padding:12px 28px;
-  cursor:none;
   transition:background .25s,border-color .25s,box-shadow .25s;
 }
 .nav-cta:hover{
@@ -254,7 +262,6 @@ nav.scrolled{
   text-transform:uppercase;
   padding:18px 40px;
   border:none;
-  cursor:none;
   position:relative;
   overflow:hidden;
   transition:transform .2s,box-shadow .2s;
@@ -281,7 +288,6 @@ nav.scrolled{
   text-transform:uppercase;
   padding:18px 32px;
   border:1px solid var(--border-dim);
-  cursor:none;
   transition:color .2s,border-color .2s;
 }
 .btn-ghost:hover{color:var(--white);border-color:var(--border)}
@@ -547,7 +553,6 @@ nav.scrolled{
   letter-spacing:.1em;
   text-transform:uppercase;
   padding:14px 24px;
-  cursor:none;
   transition:background .2s,border-color .2s,box-shadow .2s;
   align-self:flex-start;
 }
@@ -655,7 +660,7 @@ nav.scrolled{
 }
 
 /* ─────────────────────────────────────────
-   EMAIL CAPTURE CTA
+   EMAIL CAPTURE CTA (Formspree Powered)
 ───────────────────────────────────────── */
 .cta-section{
   padding:160px 64px;
@@ -704,7 +709,7 @@ nav.scrolled{
   position:relative;z-index:1;
 }
 
-/* form */
+/* Form structure for AJAX backend */
 .email-wrap{
   display:flex;
   gap:0;
@@ -737,7 +742,6 @@ nav.scrolled{
   text-transform:uppercase;
   padding:18px 32px;
   border:none;
-  cursor:none;
   white-space:nowrap;
   transition:box-shadow .25s,transform .2s;
   box-shadow:0 0 30px rgba(124,58,237,.4);
@@ -763,328 +767,6 @@ nav.scrolled{
 /* ─────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────── */
-footer{
-  border-top:1px solid var(--border-dim);
-  padding:48px 64px;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:24px;
-  position:relative;z-index:1;
-}
-.footer-logo{
-  font-family:'Montserrat',sans-serif;
-  font-weight:800;
-  font-size:1.2rem;
-  letter-spacing:-0.02em;
-}
-.footer-logo span{color:var(--violet)}
-.footer-tagline{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;
-  font-size:.95rem;
-  color:var(--white-60);
-}
-.footer-links{display:flex;gap:32px}
-.footer-links a{
-  font-size:.7rem;
-  font-weight:600;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:rgba(250,250,250,.25);
-  text-decoration:none;
-  transition:color .2s;
-}
-.footer-links a:hover{color:var(--violet)}
-.footer-copy{font-size:.68rem;color:rgba(250,250,250,.18)}
-
-/* ─────────────────────────────────────────
-   SCROLL REVEAL
-───────────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
-.reveal.up{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-
-/* ─────────────────────────────────────────
-   ANIMATIONS
-───────────────────────────────────────── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* ─────────────────────────────────────────
-   MOBILE
-───────────────────────────────────────── */
-@media(max-width:1024px){
-  nav{padding:20px 28px}
-  nav.scrolled{padding:16px 28px}
-  .nav-links{display:none}
-  .sell-grid{grid-template-columns:repeat(2,1fr)}
-  .services-grid{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr 1fr}
-  .stats-bar{padding:32px 28px;flex-wrap:wrap;gap:16px}
-  .stat-divider{display:none}
-  .stat{min-width:calc(50% - 16px)}
-  .section{padding:80px 28px}
-  .cta-section{padding:100px 28px}
-  .manifesto{padding:80px 28px}
-  footer{flex-direction:column;text-align:center;padding:40px 28px}
-  .footer-links{flex-wrap:wrap;justify-content:center;gap:20px}
-  .email-wrap{flex-direction:column}
-  .email-inp{border-right:1px solid var(--border-dim);border-bottom:none}
-  .hero{padding:120px 28px 80px}
-}
-@media(max-width:600px){
-  .sell-grid{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr}
-  .hero-headline{font-size:clamp(2.8rem,12vw,5rem)}
-}
-</style>
-</head>
-<body>
-
-<!-- CURSOR -->
-<div class="cur" id="cur"></div>
-
-<!-- AMBIENT ORBS -->
-<div class="bg-orb orb-1"></div>
-<div class="bg-orb orb-2"></div>
-
-<!-- ───── NAV ───── -->
-<nav id="nav">
-  <div class="nav-logo">Penny<span>Tech</span></div>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">How It Works</a></li>
-    <li><a href="#cta">Contact</a></li>
-  </ul>
-  <button class="nav-cta" onclick="scrollTo('#cta')">Book a Strategy Call</button>
-</nav>
-
-<!-- ───── HERO ───── -->
-<section class="hero">
-  <div class="hero-eyebrow">AI-Powered Content Growth System</div>
-
-  <h1 class="hero-headline">
-    <span class="line">
-      <span class="word w1">We&nbsp;Turn</span>
-    </span>
-    <span class="line">
-      <span class="word w2 highlight">Attention</span>
-    </span>
-    <span class="line">
-      <span class="word w3">Into&nbsp;</span><span class="word w4">Clients.</span>
-    </span>
-  </h1>
-
-  <p class="hero-sub">
-    Strategic content systems that help creators, coaches, and service businesses attract attention, build authority, and generate leads consistently.
-  </p>
-
-  <div class="hero-ctas">
-    <button class="btn-primary" onclick="scrollTo('#cta')"><span>Book A Strategy Call</span></button>
-    <button class="btn-ghost" onclick="scrollTo('#services')">Explore Services</button>
-  </div>
-
-  <div class="hero-glow-line"></div>
-</section>
-
-<!-- ───── STATS ───── -->
-<div class="stats-bar reveal">
-  <div class="stat">
-    <span class="stat-n">200+</span>
-    <span class="stat-l">Creators Served</span>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat">
-    <span class="stat-n">10×</span>
-    <span class="stat-l">Content Output</span>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat">
-    <span class="stat-n">48h</span>
-    <span class="stat-l">Strategy Turnaround</span>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat">
-    <span class="stat-n">5+</span>
-    <span class="stat-l">Platforms Covered</span>
-  </div>
-</div>
-
-<!-- ───── WHAT WE SELL ───── -->
-<section class="section what-section">
-  <p class="section-eyebrow reveal">Our Core Offer</p>
-  <h2 class="section-title reveal">We do not sell content.<br>We sell <em>outcomes.</em></h2>
-
-  <div class="sell-grid">
-    <div class="sell-card reveal">
-      <span class="sell-icon">👁</span>
-      <div class="sell-name">Attention</div>
-      <div class="sell-desc">Stop the scroll. Own the feed. We engineer content that demands to be seen.</div>
-      <div class="sell-num">01</div>
-    </div>
-    <div class="sell-card reveal reveal-delay-1">
-      <span class="sell-icon">👑</span>
-      <div class="sell-name">Authority</div>
-      <div class="sell-desc">Position you as the go-to expert in your space. Trust at scale.</div>
-      <div class="sell-num">02</div>
-    </div>
-    <div class="sell-card reveal reveal-delay-2">
-      <span class="sell-icon">🎯</span>
-      <div class="sell-name">Positioning</div>
-      <div class="sell-desc">Clarity on who you are, what you offer, and why you are the only choice.</div>
-      <div class="sell-num">03</div>
-    </div>
-    <div class="sell-card reveal reveal-delay-3">
-      <span class="sell-icon">⚙️</span>
-      <div class="sell-name">Content Systems</div>
-      <div class="sell-desc">Built-once systems that run without you. Consistent growth on autopilot.</div>
-      <div class="sell-num">04</div>
-    </div>
-    <div class="sell-card reveal reveal-delay-4">
-      <span class="sell-icon">💼</span>
-      <div class="sell-name">Client Acquisition</div>
-      <div class="sell-desc">Content that converts. Audiences that buy. A pipeline that never stops.</div>
-      <div class="sell-num">05</div>
-    </div>
-  </div>
-</section>
-
-<!-- ───── MANIFESTO ───── -->
-<section class="manifesto">
-  <p class="manifesto-quote reveal">
-    "In a world of infinite noise, the brands that win are not the loudest.
-    They are the ones with <strong>the clearest message, the sharpest strategy,</strong>
-    and a system built to attract the right people every single day."
-  </p>
-  <p class="manifesto-attr reveal">— The PennyTech Principle</p>
-</section>
-
-<!-- ───── SERVICES ───── -->
-<section class="section" id="services">
-  <p class="section-eyebrow reveal">Our Services</p>
-  <h2 class="section-title reveal">Three ways to work<br>with <em>PennyTech.</em></h2>
-  <p class="section-sub reveal">Choose the level of support that fits where you are right now.</p>
-
-  <div class="services-grid">
-
-    <!-- Card 1 -->
-    <div class="service-card reveal">
-      <div class="service-num">01 / Starter</div>
-      <h3 class="service-name">Creator Starter Kit</h3>
-      <p class="service-tagline">Everything you need to start showing up strategically.</p>
-      <p class="service-desc">
-        A complete toolkit built for creators who are ready to grow but need the right systems, templates, and AI resources to make it happen.
-      </p>
-      <ul class="service-list">
-        <li>Done-for-you content templates</li>
-        <li>Niche and audience clarity planner</li>
-        <li>AI prompt toolkit for content creation</li>
-        <li>30-day content calendar system</li>
-        <li>Caption and hook formula guide</li>
-      </ul>
-      <button class="service-cta">Get The Kit</button>
-    </div>
-
-    <!-- Card 2 — Featured -->
-    <div class="service-card featured reveal reveal-delay-1">
-      <div class="service-badge">Most Popular</div>
-      <div class="service-num">02 / Strategy</div>
-      <h3 class="service-name">Content Growth Blueprint</h3>
-      <p class="service-tagline">Your complete roadmap to becoming the authority in your space.</p>
-      <p class="service-desc">
-        A full content strategy built around your brand, your audience, and your goals. We audit where you are, map where you are going, and give you a clear plan to get there.
-      </p>
-      <ul class="service-list">
-        <li>Full content and brand audit</li>
-        <li>Positioning and messaging strategy</li>
-        <li>Platform-specific growth plan</li>
-        <li>Content pillars and topic architecture</li>
-        <li>90-day execution roadmap</li>
-        <li>One-on-one strategy session</li>
-      </ul>
-      <button class="service-cta">Book A Strategy Call</button>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-num">03 / Full Service</div>
-      <h3 class="service-name">Authority Engine</h3>
-      <p class="service-tagline">Your entire content growth system. Done for you.</p>
-      <p class="service-desc">
-        We become your content team. From strategy and scripting to editing, publishing, and growth tracking — we handle everything so you can stay in your zone of genius.
-      </p>
-      <ul class="service-list">
-        <li>Full content growth system setup</li>
-        <li>Weekly content production and editing</li>
-        <li>Multi-platform distribution</li>
-        <li>Community and engagement management</li>
-        <li>Monthly performance reports</li>
-        <li>Ongoing strategy refinement</li>
-      </ul>
-      <button class="service-cta">Apply Now</button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ───── HOW IT WORKS ───── -->
-<section class="section" id="process" style="background:var(--obsidian-2)">
-  <p class="section-eyebrow reveal">The Process</p>
-  <h2 class="section-title reveal">How we build your<br><em>content engine.</em></h2>
-
-  <div class="process-grid">
-    <div class="process-step reveal">
-      <div class="process-bg"></div>
-      <span class="process-n">01</span>
-      <h3 class="process-title">Discovery Call</h3>
-      <p class="process-desc">We learn your brand, your goals, and where you are right now. No generic advice. Just real strategy built for your situation.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-1">
-      <div class="process-bg"></div>
-      <span class="process-n">02</span>
-      <h3 class="process-title">Strategy Build</h3>
-      <p class="process-desc">We design your full content system — positioning, platforms, content pillars, and a clear 90-day roadmap to grow your audience and attract clients.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-2">
-      <div class="process-bg"></div>
-      <span class="process-n">03</span>
-      <h3 class="process-title">Execution</h3>
-      <p class="process-desc">We produce, edit, and distribute your content across platforms. Every piece is built to stop the scroll, build authority, and drive action.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-3">
-      <div class="process-bg"></div>
-      <span class="process-n">04</span>
-      <h3 class="process-title">Optimize and Scale</h3>
-      <p class="process-desc">We track the numbers, find what works, and double down. Your content system gets sharper every single week.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ───── EMAIL CTA ───── -->
-<section class="cta-section" id="cta">
-  <div class="cta-bg-text">GROW</div>
-
-  <p class="section-eyebrow reveal" style="justify-content:center;margin-bottom:24px">Get Early Access</p>
-  <h2 class="cta-title reveal">Ready to turn your<br><span style="background:linear-gradient(135deg,var(--purple),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">content into clients?</span></h2>
-  <p class="cta-sub reveal">Drop your email below and we will reach out to book your free strategy call.</p>
-
-  <div class="email-wrap reveal" id="emailWrap">
-    <input class="email-inp" type="email" id="emailVal" placeholder="Enter your email address"/>
-    <button class="email-sub" onclick="submitEmail()">Book Your Call</button>
-  </div>
-  <p class="email-note reveal" id="emailNote">No spam. No noise. Just one email from us.</p>
-
-  <div class="success-block" id="successBlock">
-    <span style="font-size:1.2rem">✦</span>
-    You are on the list. We will reach out within 24 hours to book your strategy call.
-  </div>
-</section>
-
-<!-- ───── FOOTER ───── -->
 <footer>
   <div>
     <div class="footer-logo">Penny<span>Tech</span></div>
@@ -1100,17 +782,19 @@ footer{
 </footer>
 
 <script>
-/* CURSOR */
+/* CURSOR (Desktop only execution) */
 const cur = document.getElementById('cur');
 let mx=0,my=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cur.style.left=mx+'px';cur.style.top=my+'px';
-});
-document.querySelectorAll('button,a,input').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cur.classList.add('big'));
-  el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
-});
+if (window.innerWidth > 1024) {
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+  });
+  document.querySelectorAll('button,a,input').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
 
 /* NAV SCROLL */
 const nav=document.getElementById('nav');
@@ -1123,6 +807,11 @@ function scrollTo(sel){
   document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});
 }
 
+/* SCROLL TO COMPATIBILITY FOR BUTTONS */
+document.querySelectorAll('.service-cta, .nav-cta, .btn-primary').forEach(btn => {
+  btn.addEventListener('click', () => scrollTo('#cta'));
+});
+
 /* SCROLL REVEAL */
 const revealEls=document.querySelectorAll('.reveal');
 const ro=new IntersectionObserver(entries=>{
@@ -1132,20 +821,48 @@ const ro=new IntersectionObserver(entries=>{
 },{threshold:.12});
 revealEls.forEach(el=>ro.observe(el));
 
-/* EMAIL SUBMIT */
+/* EMAIL SUBMIT (Connected to your Formspree Dashboard) */
 function submitEmail(){
   const val=document.getElementById('emailVal').value.trim();
+  const subBtn=document.querySelector('.email-sub');
+  
   if(!val||!val.includes('@')){
     const inp=document.getElementById('emailVal');
     inp.style.borderColor='rgba(212,175,55,.6)';
     setTimeout(()=>inp.style.borderColor='',1500);
     return;
   }
-  document.getElementById('emailWrap').style.display='none';
-  document.getElementById('emailNote').style.display='none';
-  document.getElementById('successBlock').classList.add('on');
-  console.log('Email captured:',val);
-  // Replace with your email service integration
+  
+  subBtn.innerText = "Sending...";
+  subBtn.disabled = true;
+
+  // Formspree API Integration via AJAX
+  fetch('https://formspree.io/f/meewaewz', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+          email: val,
+          message: 'Lead requested a Strategy Call via PennyTech homepage.'
+      })
+  })
+  .then(response => {
+      if (response.ok) {
+          document.getElementById('emailWrap').style.display='none';
+          document.getElementById('emailNote').style.display='none';
+          document.getElementById('successBlock').classList.add('on');
+      } else {
+          throw new Error('Formspree setup error');
+      }
+  })
+  .catch(error => {
+      console.log(error);
+      subBtn.innerText = "Book Your Call";
+      subBtn.disabled = false;
+      alert("Something went wrong. Please check your network or try again.");
+  });
 }
 
 /* ENTER KEY */
@@ -1155,4 +872,3 @@ document.getElementById('emailVal').addEventListener('keydown',e=>{
 </script>
 </body>
 </html>
-
